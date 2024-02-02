@@ -43,12 +43,12 @@
 
     <div class="navbar-extra" style="margin-right: -5rem;">
       <a href="#" id="search-button"><i data-feather="search"></i></a>
-      <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+      <a href="#" id="shopping-cart-button">
+        <i data-feather="shopping-cart">
+        <span class="cart-counter" style="font-size: 20rem;">0</span></i></a>
       <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       <a href="/logout" id="log-out"><i data-feather="log-out"></i></a>
     </div>
-    
-    
 
     <!-- Search Form start -->
     <div class="search-form">
@@ -59,10 +59,9 @@
     <!-- Search Form end -->
 
     <!-- Shopping Cart start -->
-    
     <div class="shopping-cart">
-      <h2>Your Cart</h2>
-      <div class="cart-item">
+      <h2 class="yahayuik">Your Cart</h2>
+      <!-- <div class="cart-item">
         <img src="images/paketa.jpeg" alt="Product 1">
         <div class="item-detail">
           <h3>Paket A</h3>
@@ -75,22 +74,28 @@
           </div>
         </div>
         <i data-feather="trash-2" class="remove-item"></i>
-      </div>
+      </div> -->
+      <div class="container" id="shopping_cart"></div>
+
       <div class="container" style="border-top: 2px dashed #b6895b; border-bottom: 2px dashed #b6895b;">
         <div style="display: flex; gap: 5px; font-size: 1.5rem; font-weight: bold; tezt-align: center; justify-content: center; padding-top: 10px; padding-bottom: 10px;">
           <div class="">Total</div>
           <div class="">:</div>
           <div class="">Rp</div>
-          <div class="">30. 000</div>
+          <div class="total_semua">0</div>
         </div>
       </div>
+      <form action="/submit_form" method="post" style="width: 370px; margin: 10px auto;">
+          <label for="message" style="display: inline-block; margin-bottom: 5px; font-size: 15px;">Catatan :</label>
+          <textarea id="message" name="message" style="width: calc(100% - 0px); padding: 10px; margin-top: 5px; display: inline-block;"></textarea>
+      </form>
       
       <div class="container" style="text-align: right;">
       <button button class="checkout-button">Checkout</button>
       </div>
 
     <!-- Shopping Cart end -->
-
+</div>
   </nav>
   <!-- Navbar end -->
 
@@ -122,190 +127,217 @@
   <!-- About Section end -->
   
   <!-- Products Section start -->
-  <section class="products" id="products">
+  <section class="products" id="products" x-data="products">
     <h2><span>Menu</span> Kami</h2>
     <p>Disini kami menyidiakan beberapa<br>menu yang bisa anda order</p>
 
     <div class="row">
-      <div class="product-card" data-name="p-1">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Paket A', 'Rp 10K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Paket A',10000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Paket A', 'Rp 10K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/paketa.jpeg" alt="Product 1" data-name="p-1">
-        </div>
-        <div class="product-content">
-          <h3>Paket A</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-1">
+          <div class="product-image">
+            <img src="images/paket a.jpeg" alt="Product 1" data-name="p-1">
           </div>
-          <div class="product-price">Rp 10K</div>
+          <div class="product-content">
+            <h3>Paket A</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 10.000</div>
+          </div>
         </div>
       </div>
     
       <div class="product-card">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" data-name="p-2" onclick="openModal('Paket B', 'Rp 16K')"><i data-feather="eye"></i></a>
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Paket B',16000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Paket B', 'Rp 16K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/paketb.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Paket B</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-2">
+          <div class="product-image">
+            <img src="images/paket b.jpeg" alt="Product 1" data-name="p-2">
           </div>
-          <div class="product-price">Rp 16K</div>
+          <div class="product-content">
+            <h3>Paket B</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 16.000</div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-name="p-3">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Paket C', 'Rp 40K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Paket C',40000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Paket C', 'Rp 40K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/paketc.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Paket C</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-3">
+          <div class="product-image">
+            <img src="images/paket c.jpeg" alt="Product 1" data-name="p-3">
           </div>
-          <div class="product-price">Rp 40K</div>
+          <div class="product-content">
+            <h3>Paket C</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 40.000</div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-name="p-4">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Ayam Geprek', 'Rp 10K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Ayam Geprek',10000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Ayam Geprek', 'Rp 10K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/ayamgeprek1.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Ayam Geprek</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-4">
+          <div class="product-image">
+            <img src="images/ayam geprek.jpeg" alt="Product 1" data-name="p-4">
           </div>
-          <div class="product-price">Rp 10K</div>
+          <div class="product-content">
+            <h3>Ayam Geprek</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 10.000</div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-name="p-5">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Nugget Geprek', 'Rp 10K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Nugget Geprek',10000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Nugget Geprek', 'Rp 10K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/nuggetgeprek.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Nugget Geprek</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-5">
+          <div class="product-image">
+            <img src="images/nugget geprek.jpeg" alt="Product 1" data-name="p-5">
           </div>
-          <div class="product-price">Rp 10K</div>
+          <div class="product-content">
+            <h3>Nugget Geprek</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 10.000</div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-name="p-6">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Sushi Nasgor', 'Rp 10K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Sushi Nasgor',10000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Sushi Nasgor', 'Rp 10K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/nasgor.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Sushi Nasgor</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-6">
+          <div class="product-image">
+            <img src="images/sushi nasgor.jpeg" alt="Product 1" data-name="p-6">
           </div>
-          <div class="product-price">Rp 10K</div>
+          <div class="product-content">
+            <h3>Sushi Nasgor</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 10.000</div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-name="p-7">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Kimbab Roll', 'Rp 10K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Kimbab Roll',10000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Kimbab Roll', 'Rp 10K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/ori.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Kimbab Roll</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-7">
+          <div class="product-image">
+            <img src="images/kimbab roll.jpeg" alt="Product 1" data-name="p-7">
           </div>
-          <div class="product-price">Rp 10K</div>
+          <div class="product-content">
+            <h3>Kimbab Roll</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 10.000</div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-name="p-8">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Crispy Roll', 'Rp 10K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Crispy Roll',10000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Crispy Roll', 'Rp 10K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/crispy1.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Crispy Roll</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-8">
+          <div class="product-image">
+            <img src="images/crispy roll.jpeg" alt="Product 1" data-name="p-8">
           </div>
-          <div class="product-price">Rp 10K</div>
+          <div class="product-content">
+            <h3>Crispy Roll</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 10.000</div>
+          </div>
         </div>
       </div>
-      <div class="product-card" data-name="p-9">
-        <div class="product-icons">
-          <a href="#"><i data-feather="shopping-cart"></i></a>
-          <a href="#" onclick="openModal('Mix Ori', 'Rp 10K')"><i data-feather="eye"></i></a>
+      <div class="product-card">
+        <div class="product-icons" >
+          <a href="javascript:void(0)" onclick="addToCart('Mix Ori',10000)"><i data-feather="shopping-cart"></i></a>
+          <a href="#" onclick="openModal('Mix Ori', 'Rp 10K')">
+          <i data-feather="eye"></i></a>
         </div>
-        <div class="product-image">
-          <img src="images/mixori.jpeg" alt="Product 1">
-        </div>
-        <div class="product-content">
-          <h3>Mix Ori</h3>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
+        <div class="" id="p-9">
+          <div class="product-image">
+            <img src="images/mix ori.jpeg" alt="Product 1" data-name="p-9">
           </div>
-          <div class="product-price">Rp 10K</div>
+          <div class="product-content">
+            <h3>Mix Ori</h3>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+            </div>
+            <div class="product-price">Rp 10.000</div>
+          </div>
         </div>
       </div>
     </div>
@@ -392,10 +424,10 @@
   <!-- Footer end -->
 
  <!-- Modal start -->
- <div class="products-preview">
-   <div class="preview" data-target="p-1">
+  <div class="products-preview">
+   <div class="preview" data-target="#p-1">
       <i class="fas fa-times close-modal"></i>
-      <img src="images/paketa.jpeg" alt="">
+      <img src="images/paket a.jpeg" alt="">
 
       <div class="" style="padding-top: 1.3rem;">
         <h3>Paket A</h3>
@@ -411,15 +443,15 @@
           <span>( 250 )</span>
         </div>
         <div class="buttons"> 
-          <a href="#" class="cart">add to cart</a>
+          <a href="javascript:void(0)" onclick="addToCart('Paket A',10000)" style="color: #ffffff; background: #b6895b; border: 0.1rem solid #b6895b;">add to cart</a>
         </div>
       </div>        
    </div>
 
    <div class="products-preview">
-    <div class="preview" data-target="p-2">
+    <div class="preview" data-target="#p-2">
       <i class="fas fa-times close-modal"></i>
-      <img src="images/paketa.jpeg" alt="">
+      <img src="images/paket b.jpeg" alt="">
 
       <div class="" style="padding-top: 1.3rem;">
         <h3>Paket B</h3>
@@ -435,15 +467,15 @@
           <span>( 250 )</span>
         </div>
         <div class="buttons"> 
-          <a href="#" class="cart">add to cart</a>
+          <a href="#" class="cart" >add to cart</a>
         </div>
       </div>        
    </div>
 
    <div class="products-preview">
-    <div class="preview" data-target="p-3">
+    <div class="preview" data-target="#p-3">
       <i class="fas fa-times close-modal"></i>
-      <img src="images/paketa.jpeg" alt="">
+      <img src="images/paket C.jpeg" alt="">
 
       <div class="" style="padding-top: 1.3rem;">
         <h3>Paket C</h3>
@@ -465,7 +497,7 @@
    </div>
 
    <div class="products-preview">
-    <div class="preview" data-target="p-4">
+    <div class="preview" data-target="#p-4">
       <i class="fas fa-times close-modal"></i>
       <img src="images/paketa.jpeg" alt="">
 
@@ -489,7 +521,7 @@
    </div>
 
    <div class="products-preview">
-    <div class="preview" data-target="p-5">
+    <div class="preview" data-target="#p-5">
       <i class="fas fa-times close-modal"></i>
       <img src="images/paketa.jpeg" alt="">
 
@@ -513,7 +545,7 @@
    </div>
 
    <div class="products-preview">
-    <div class="preview" data-target="p-6">
+    <div class="preview" data-target="#p-6">
       <i class="fas fa-times close-modal"></i>
       <img src="images/paketa.jpeg" alt="">
 
@@ -537,7 +569,7 @@
    </div>
 
    <div class="products-preview">
-    <div class="preview" data-target="p-7">
+    <div class="preview" data-target="#p-7">
       <i class="fas fa-times close-modal"></i>
       <img src="images/paketa.jpeg" alt="">
 
@@ -561,7 +593,7 @@
    </div>
 
    <div class="products-preview">
-    <div class="preview" data-target="p-8">
+    <div class="preview" data-target="#p-8">
       <i class="fas fa-times close-modal"></i>
       <img src="images/paketa.jpeg" alt="">
 
@@ -583,37 +615,165 @@
         </div>
       </div>  
       
-    <div class="products-preview">
-      <div class="preview" data-target="p-9">
-        <i class="fas fa-times close-modal"></i>
-        <img src="images/paketa.jpeg" alt="">
+  <div class="products-preview">
+    <div class="preview" data-target="p#-9">
+      <i class="fas fa-times close-modal"></i>
+      <img src="images/paketa.jpeg" alt="">
 
-        <div class="" style="padding-top: 1.3rem;">
-          <h3>Mix Ori</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-          <div class="price">Rp 10,000</div>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <!-- <i class="fas fa-star-half-alt"></i> -->
-            <span>( 250 )</span>
-          </div>
-          <div class="buttons"> 
-            <a href="#" class="cart">add to cart</a>
-          </div>
-        </div>        
-      </div>
-   </div>
-
+      <div class="" style="padding-top: 1.3rem;">
+        <h3>Mix Ori</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+        <div class="price">Rp 10,000</div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <!-- <i class="fas fa-star-half-alt"></i> -->
+          <span>( 250 )</span>
+        </div>
+        <div class="buttons"> 
+          <a href="#" class="cart">add to cart</a>
+        </div>
+      </div>        
+    </div>
+  </div>
 </div>
 <!-- Modal end -->
+
 <script>
-let previewContainer = document.querySelector('.products-preview');
-let previewBox = previewContainer.querySelector('.products-preview .preview');
-let btnCloseModal = document.querySelector('.products-preview .preview .close-modal');
+    function updateQuantity(change, buttonElement) {
+      // Get the closest parent with the class 'cart-item'
+      const cartItem = buttonElement.closest('.cart-item');
+
+      // Find the quantity input inside the cart-item
+      const quantityInput = cartItem.querySelector('.quantity-input input');
+
+      // Ensure that both the cart item and quantity input are found
+      if (!cartItem || !quantityInput) {
+        console.error('Error: Unable to find necessary elements.');
+        return;
+      }
+
+      // Get the current quantity value
+      let quantity = parseInt(quantityInput.value);
+
+      // Ensure the quantity is not less than 1 when decreasing
+      if (change === -1 && quantity === 1) {
+        return;
+      }
+
+      // Update the quantity
+      quantity += change;
+
+      // Set the new quantity value
+      quantityInput.value = quantity;
+
+      // Update subtotal
+      const itemPriceElement = cartItem.querySelector('.item-price span');
+      const subtotalElement = cartItem.querySelector('.subtotal');
+
+      // Ensure that both the item price and subtotal elements are found
+      if (!itemPriceElement || !subtotalElement) {
+        console.error('Error: Unable to find necessary elements for subtotal update.');
+        return;
+      }
+
+      // Extract the numeric part of the item price text using a regular expression
+      const itemPriceText = itemPriceElement.textContent.trim();
+      const itemPriceMatch = itemPriceText.match(/\d+(\.\d+)?/);
+
+      // Check if itemPriceMatch is a valid array with at least one element
+      if (!itemPriceMatch || itemPriceMatch.length < 1) {
+        console.error('Error: Invalid item price format. Text content:', itemPriceText);
+        return;
+      }
+
+      // Convert the matched value to a number
+      const itemPrice = parseFloat(itemPriceMatch[0]);
+
+      // Check if itemPrice is a valid number
+      if (isNaN(itemPrice)) {
+        console.error('Error: Invalid item price. Text content:', itemPriceText);
+        return;
+      }
+
+      const subtotal = quantity * itemPrice;
+
+      // Check if subtotal is a valid number
+      if (isNaN(subtotal)) {
+        console.error('Error: Subtotal calculation resulted in NaN.');
+        return;
+      }
+
+      // Format subtotal as currency (Rp)
+      const formattedSubtotal = formatCurrency(subtotal);
+
+      subtotalElement.textContent = formattedSubtotal;
+
+      // Optional: Update other styles or perform additional actions
+      const removeItemIcon = cartItem.querySelector('.remove-item');
+      if (removeItemIcon) {
+        removeItemIcon.style.color = 'red'; // Example: Change color to red
+      }
+
+      // Update the total 
+      updateTotal(); 
+    }
+
+    // Function to format number as currency (Rp)
+    function formatCurrency(number) {
+      const formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 3
+      });
+
+      return formatter.format(number).replace(/(\.000)$/, ''); // Remove decimal places if .000
+    }
+
+    function updateTotal() {
+      // Get all cart items
+      const cartItems = document.querySelectorAll('.cart-item');
+
+      // Initialize total
+      let total = 0;
+
+      // Iterate through each cart item
+      cartItems.forEach(cartItem => {
+        // Find the subtotal element inside the cart item
+        const subtotalElement = cartItem.querySelector('.subtotal');
+
+        // Ensure subtotal element is found
+        if (subtotalElement) {
+          // Extract the numeric part of the subtotal text using a regular expression
+          const subtotalText = subtotalElement.textContent.trim();
+          const subtotalMatch = subtotalText.match(/\d+(\.\d+)?/);
+
+          // Check if subtotalMatch is a valid array with at least one element
+          if (subtotalMatch && subtotalMatch.length >= 1) {
+            // Convert the matched value to a number and add to the total
+            total += parseFloat(subtotalMatch[0]);
+          }
+        }
+      });
+
+      // Format total as currency (Rp) with three decimal places
+      const formattedTotal = formatCurrency(total);
+
+      // Update the content of the "Total" section
+      const totalSemuaElement = document.querySelector('.total_semua');
+      if (totalSemuaElement) {
+        totalSemuaElement.textContent = ` ${formattedTotal}`;
+      }
+    }
+</script>
+
+<script>
+  let previewContainer = document.querySelector('.products-preview');
+  let previewBox = previewContainer.querySelector('.products-preview .preview');
+  let btnCloseModal = document.querySelector('.products-preview .preview .close-modal');
 
 // document.querySelectorAll('.products-container .product').forEach(product =>{
 //   product.onclick = () =>{
@@ -629,7 +789,185 @@ let btnCloseModal = document.querySelector('.products-preview .preview .close-mo
 //   };
 // });
 
+  // Membuat elemen untuk item di keranjang belanja
+//   function createCartItem(productName, productPrice) {
+//     const cartItem = document.createElement('div');
+//     cartItem.classList.add('cart-item');
+//     cartItem.innerHTML = `
+//       <img src="images/${productName}.jpeg" alt="${productName}">
+//       <div class="item-detail">
+//         <h3>${productName}</h3>
+//         <div class="item-price">
+//           <span>${productPrice}</span> &times;
+//           <button class="quantity-btn" onclick="updateQuantity(-1, this)" >-</button>
+//           <div class="input-group quantity-input">
+//             <input type="number" class="form-control" placeholder="Qty" value="1" onchange="updateQuantity(0, this)">
+//             <div class="input-group-append">
+//               <button class="quantity-btn" onclick="updateQuantity(1, this)">+</button>
+//             </div>
+//           </div>
+//           &equals;
+//           <span class="subtotal">${productPrice}</span>
+//         </div>
+//       </div>
+//       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" class="remove-item" onclick="removeCartItem(this)">
+//         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+//         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+//       </svg>
+//     `;
+    
+//   // Mengambil referensi ke elemen shopping cart
+//   const shoppingCart = document.getElementById('shopping_cart');
 
+//   // Menambahkan item keranjang ke keranjang belanja
+//   shoppingCart.appendChild(cartItem);
+
+      
+//   previewContainer.style.display = 'none';
+//   previewBox.style.display = 'none';
+// }
+
+
+ 
+  function updateCartItemTotal(element) {
+    const cartItem = element.closest('.cart-item');
+    const itemPriceElement = cartItem.querySelector('.item-price span');
+    const quantityElement = cartItem.querySelector('.item-price span:nth-child(3)');
+    const totalPriceElement = cartItem.querySelector('.item-price span:last-child');
+
+    const productPrice = parseFloat(itemPriceElement.innerText.replace('Rp', '').replace('K', ''));
+    const quantity = parseInt(quantityElement.innerText, 10);
+    const totalPrice = productPrice * quantity;
+
+    // Menetapkan kembali total harga item di keranjang belanja
+    totalPriceElement.innerText = `Rp ${totalPrice.toFixed(3)}K`;
+  }
+  function addToCart(productName, productPrice) {
+  const shoppingCart = document.getElementById('shopping_cart');
+
+  if (isItemInCart(productName)) {
+    alert('Item is already in the cart!');
+  } else {
+    // If not in the cart, add it
+    const cartItem = createCartItem(productName, productPrice);
+    shoppingCart.appendChild(cartItem);
+
+    // Update cart counter
+    updateCartCounter();
+  }
+}
+
+function createCartItem(productName, productPrice) {
+  const cartItem = document.createElement('div');
+  cartItem.classList.add('cart-item');
+  cartItem.innerHTML = `
+    <img src="images/${productName}.jpeg" alt="${productName}">
+    <div class="item-detail">
+      <h3>${productName}</h3>
+      <div class="item-price" style="display: flex; gap: 5px;">
+        <span>${productPrice}</span> &times;
+        
+        <div class="input-group quantity-input">
+          <input type="number" class="form-control" placeholder="Qty" value="1" onchange="updateQuantity(0, this)">
+          
+        </div>
+        &equals;
+        <span class="subtotal"id="subtotal">${productPrice}</span>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" class="remove-item" onclick="removeCartItem(this)">
+      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+    </svg>
+  `;
+
+  // Mengambil referensi ke elemen shopping cart
+  const shoppingCart = document.getElementById('shopping_cart');
+
+  // Menambahkan item keranjang ke keranjang belanja
+  shoppingCart.appendChild(cartItem);
+
+  previewContainer.style.display = 'none';
+   previewBox.style.display = 'none';
+
+  // If you have logic for hiding preview elements, add it here
+}
+const subtotalElement = document.getElementById('subtotal');
+
+function updateQuantity(change, buttonElement, productPrice, subtotalElement) {
+  const cartItem = buttonElement.closest('.cart-item');
+  const quantityInput = cartItem.querySelector('.quantity-input input');
+
+  // Ensure that both the cart item and quantity input are found
+  if (!cartItem || !quantityInput || !subtotalElement) {
+    console.error('Error: Unable to find necessary elements.');
+    return;
+  }
+
+  // Get the current quantity value
+  let quantity = parseInt(quantityInput.value);
+
+  // Ensure the quantity is not less than 1 when decreasing
+  if (change === -1 && quantity === 1) {
+    return;
+  }
+
+  // Update the quantity
+  quantity += change;
+
+  // Set the new quantity value
+  quantityInput.value = quantity;
+
+  // Update subtotal
+  const subtotal = productPrice * quantity;
+
+  // Format subtotal sebagai mata uang (Rp)
+  const formattedSubtotal = formatCurrency(subtotal);
+
+  // Set nilai subtotal dalam format yang diinginkan
+  subtotalElement.textContent = formattedSubtotal;
+
+  // Opsional: Perbarui gaya atau lakukan tindakan tambahan lainnya
+  const removeItemIcon = cartItem.querySelector('.remove-item');
+  if (removeItemIcon) {
+    removeItemIcon.style.color = 'red'; // Contoh: Mengubah warna menjadi merah
+  }
+
+  // Perbarui total
+  updateTotal();
+
+  console.log(formattedSubtotal);
+}
+
+
+  function removeCartItem(element) {
+    const cartItem = element.closest('.cart-item');
+    cartItem.remove();
+
+    // Update cart counter
+    updateCartCounter();
+  }
+
+  function updateCartCounter() {
+    const cartCounter = document.querySelector('.cart-counter');
+    const cartItems = document.querySelectorAll('.cart-item');
+    cartCounter.innerText = cartItems.length;
+  }
+
+
+  function isItemInCart(productName) {
+    const cartItems = document.querySelectorAll('.cart-item h3');
+    for (const item of cartItems) {
+      if (item.innerText === productName) {
+          return true; // Item is in the cart
+      }
+    }
+
+
+
+    return false; // Item is not in the cart
+  }
+ 
 
 function openModal(productName, productPrice) {
   previewContainer.style.display = 'flex';
@@ -645,14 +983,110 @@ function openModal(productName, productPrice) {
 
 btnCloseModal.addEventListener("click", function(){
   previewContainer.style.display = 'none';
-})
-// previewBox.forEach(close =>{
-//   close.querySelector('.fa-times').onclick = () =>{
-//     close.classList.remove('active');
-//     previewContainer.style.display = 'none';
-//   };
-// });
+}) 
 
+
+
+</script>
+
+<script>
+ 
+  // Get all product cards
+ // const productCards = document.querySelectorAll('.product-card');
+
+  // Get the modal container
+  const modalContainer = document.querySelector('.products-preview');
+
+  // Iterate through each product card and add a click event listener
+  productCards.forEach(productCard => {
+    productCard.addEventListener('click', () => {
+      // Clone the product card and append it to the modal container
+      const modalContent = cloneProductCard(productCard);
+      modalContainer.innerHTML = ''; // Clear previous content
+      modalContainer.appendChild(modalContent);
+
+      // Show the modal
+      modalContainer.style.display = 'flex';
+    });
+  });
+
+  // Close modal when clicking the close button or outside the modal content
+  modalContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('close-modal') || event.target === modalContainer) {
+      modalContainer.style.display = 'none';
+    }
+  });
+
+  // Function to clone a product card
+  function cloneProductCard(originalCard) {
+    const clonedCard = document.createElement('div');
+    clonedCard.className = originalCard.className; // Copy classes
+    clonedCard.innerHTML = originalCard.innerHTML; // Copy HTML content
+    return clonedCard;
+  }
+</script>
+
+<script>
+// Menunggu DOM selesai dimuat
+document.addEventListener("DOMContentLoaded", function () {
+  
+  // Mendapatkan semua kartu produk
+  // const productCards = document.querySelectorAll('.product-card');
+  
+  // Mendapatkan elemen keranjang belanja
+  const shoppingCart = document.getElementById('shopping_cart');
+
+  // Iterasi melalui setiap kartu produk dan menambahkan penanganan acara klik
+  productCards.forEach(productCard => {
+    // Mendapatkan nama dan harga produk dari setiap kartu
+    const productName = productCard.querySelector('.product-content h3').innerText;
+    const productPrice = productCard.querySelector('.product-price').innerText;
+
+    // Menambahkan penanganan acara klik
+    productCard.addEventListener('click', (event) => {
+      event.preventDefault();
+      // Menambahkan produk ke keranjang belanja
+      addToCart(productName, productPrice);
+    });
+  });
+  // Fungsi untuk menambahkan produk ke keranjang belanja
+ 
+
+  // Fungsi untuk menghapus item dari keranjang belanja
+  window.removeCartItem = function (element) {
+    const cartItem = element.closest('.cart-item');
+    cartItem.remove();
+  };
+
+  // Fungsi untuk menambah jumlah item di keranjang belanja
+  window.addCartItem = function (element) {
+    const quantityElement = element.parentElement.querySelector('span');
+    const quantity = parseInt(quantityElement.innerText, 10);
+    quantityElement.innerText = quantity + 1;
+
+    // Memperbarui total harga item di keranjang belanja
+    updateCartItemTotal(element);
+  };
+
+  // Fungsi untuk mengurangi jumlah item di keranjang belanja
+  window.removeCartItem = function (element) {
+    const quantityElement = element.parentElement.querySelector('span');
+    const quantity = parseInt(quantityElement.innerText, 10);
+
+    if (quantity > 1) {
+      quantityElement.innerText = quantity - 1;
+      // Memperbarui total harga item di keranjang belanja
+      updateCartItemTotal(element);
+    } else {
+      // Jika jumlahnya 1, hapus item keranjang
+      const cartItem = element.closest('.cart-item');
+      cartItem.remove();
+    }
+  };
+
+  // Fungsi untuk memperbarui total harga item di keranjang belanja
+  
+});
 </script>
 
   <!-- Feather Icons -->

@@ -10,6 +10,9 @@ Route::get('/create-sample', [halamanController::class, 'createSample']);
 
 // administrator
 Route::get('/dashboard', [halamanController::class, 'dashboard'])->name('dashboard');
+Route::get('/meja', [halamanController::class, 'meja'])->name('meja');
+Route::get('/makanan', [halamanController::class, 'makanan'])->name('makanan');
+Route::get('/minuman', [halamanController::class, 'minuman'])->name('minuman');
 
 // kasir
 Route::get('/pesanan1', [halamanController::class, 'pesanan1'])->name('pesanan_kasir');

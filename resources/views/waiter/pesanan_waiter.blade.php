@@ -73,6 +73,9 @@
                         </ul>
                     </div>
                 </div>
+                <div>
+                    <p style="display: inline-flex; gap: 5px; margin-top: 10px; margin-left: -45px ">Note :<strong>sambel ayam gepreknya dikit aja</strong></p>
+                </div>
             </div>
             <div class="modal-footer" style="background: #f1f1f1ba;">
                 <button type="button" class="btn" style="background: lightblue; color: #000000; border: 1px solid black;"  data-dismiss="modal">Tutup</button>

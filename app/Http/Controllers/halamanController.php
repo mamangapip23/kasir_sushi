@@ -35,7 +35,57 @@ class HalamanController extends Controller
         return View::make('administrator.dashboard', ['formattedDate' => $formattedDate]);
     }
 
-    
+    public function meja()
+    {
+        // return view('kasir.pesanan_kasir'.$row);
+
+         // Set zona waktu ke "Asia/Jakarta"
+         date_default_timezone_set('Asia/Jakarta');
+
+         // Mendapatkan tanggal dan waktu saat ini sesuai dengan zona waktu Jakarta
+         $now = Carbon::now();
+ 
+         // Format tanggal sesuai dengan kebutuhan (contoh: Senin, 17 Januari 2024)
+        $formattedDate = $now->format('l, d F Y');
+
+        // Kirim variabel dengan tanggal yang diformat ke tampilan
+        return View::make('administrator.meja', ['formattedDate' => $formattedDate]);
+    }
+
+    public function makanan()
+    {
+        // return view('kasir.pesanan_kasir'.$row);
+
+         // Set zona waktu ke "Asia/Jakarta"
+         date_default_timezone_set('Asia/Jakarta');
+
+         // Mendapatkan tanggal dan waktu saat ini sesuai dengan zona waktu Jakarta
+         $now = Carbon::now();
+ 
+         // Format tanggal sesuai dengan kebutuhan (contoh: Senin, 17 Januari 2024)
+        $formattedDate = $now->format('l, d F Y');
+
+        // Kirim variabel dengan tanggal yang diformat ke tampilan
+        return View::make('administrator.makanan', ['formattedDate' => $formattedDate]);
+    }
+
+    public function minuman()
+    {
+        // return view('kasir.pesanan_kasir'.$row);
+
+         // Set zona waktu ke "Asia/Jakarta"
+         date_default_timezone_set('Asia/Jakarta');
+
+         // Mendapatkan tanggal dan waktu saat ini sesuai dengan zona waktu Jakarta
+         $now = Carbon::now();
+ 
+         // Format tanggal sesuai dengan kebutuhan (contoh: Senin, 17 Januari 2024)
+        $formattedDate = $now->format('l, d F Y');
+
+        // Kirim variabel dengan tanggal yang diformat ke tampilan
+        return View::make('administrator.minuman', ['formattedDate' => $formattedDate]);
+    }
+
     public function pesanan1()
     {
         // return view('kasir.pesanan_kasir'.$row);
